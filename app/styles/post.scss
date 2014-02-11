@@ -1,0 +1,27 @@
+/*
+	'pre.transclude' enables css authoring from a wordpress post.
+	It is compiled via the 'pretransclude' directive
+*/
+pre.transclude {
+	display:none;
+}
+/*
+	responsive styling for embeds (videos)
+*/
+.embed-container {
+	position: relative;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

@@ -1,0 +1,280 @@
+@import "color";
+@import "compass";
+
+/*
+	Common dimensions
+*/
+
+$sidepanelbutton_width:40px;
+$sidepanelheader_height:80px;
+$sidepanelcontent_padding : 20px;
+$sidepanelcontentcontrol_height : 40px;
+$sidepanelmenu_height: 300px;
+/*
+	Left menu should be rendered in vvvv in a 200px wide window.
+	Right menu should be rendered in vvvv in a 400px wide window.
+*/
+$sidepanelcontentleft_width : 160px;
+$sidepanelcontentright_width : 360px;
+
+
+.sidepanel {
+	-webkit-transition: -webkit-transform 200ms;
+	position:absolute;
+	height:100%;
+	.logocontainer,
+	.scenecontrol {
+		position:relative;
+		z-index:11;
+		height:$sidepanelheader_height;
+		margin:0;
+		padding:$sidepanelcontent_padding;
+		border-bottom:1px solid #DDD;
+		background:white;
+	}
+	.logocontainer {
+		img {
+			max-width:100%;
+			max-height:$sidepanelheader_height - 2 * $sidepanelcontent_padding;
+		}
+	}
+	.scenecontrol {
+		ul {
+			position:relative;
+			top:0;
+			left:-$sidepanelcontent_padding;
+			width:$sidepanelcontentright_width;
+			margin:0;
+			padding:0;
+			color:#777;
+			list-style-type:none;
+			li {
+				display:inline-block;
+				width:$sidepanelheader_height - 2 * $sidepanelcontent_padding;
+				height:$sidepanelheader_height - 2 * $sidepanelcontent_padding;
+				margin: 0 $sidepanelcontent_padding / 2 0 0;
+				padding:($sidepanelheader_height - 2 * $sidepanelcontent_padding - 20px) / 2 0;
+				text-align:center;
+				font-size:20px;
+				line-height:100%;
+				border-radius:0;
+				background:#444;
+				color:white;
+			}
+		}
+	}
+	.menubutton {
+		position:absolute;
+		z-index:10;
+		width:$sidepanelbutton_width + 1px;
+		height:100%;
+		border:1px solid #DDD;
+		span {
+			-webkit-transition: all 200ms linear;
+			position:absolute;
+			top:-30px;
+			color:#BBB;
+			font-size:18px;
+			font-family: 'Orbitron', cursive;
+		}
+	}
+	.sidepanelcontent {
+		-webkit-transform: translate3d(0, 0, 0);
+		position:absolute;
+		top:0;
+		height:100%;
+		padding-top:$sidepanelheader_height;
+		padding-left:$sidepanelcontent_padding;
+		padding-right:$sidepanelcontent_padding;
+		background:#FBFBFB;
+		overflow-x:hidden;
+		overflow-y:scroll;
+		&::-webkit-scrollbar {
+		    display: none;
+		}
+		h3 {
+			margin-bottom:0;
+			font-size:20px;
+			font-weight:400;
+			font-family: 'Orbitron', cursive;
+		}
+		.sidepanelcontrol {
+			-webkit-transform: translate3d(0, 0, 0);
+			position:absolute;
+			z-index:6;
+			left:0;
+			width:100%;
+			height: $sidepanelcontentcontrol_height;
+			border:1px solid #DDD;
+			color:#DDD;
+			background:white;
+			font-size:$sidepanelcontentcontrol_height / 1.5;
+			line-height:$sidepanelcontentcontrol_height;
+			text-align:center;
+			&.sidepanelcontroltop {
+				top:$sidepanelheader_height;
+				border-width: 0 0 1px 0;
+			}
+			&.sidepanelcontrolbottom {
+				bottom:0;
+				border-width: 1px 0 0 0;
+				.navBack,
+				.navForward {
+					position:absolute;
+					display:block;
+					text-align:center;
+					width:40px;
+					height:100%;
+					text-align:center;
+				}
+				.navBack {
+					left:0;
+				}
+				.navForward {
+					right:0;
+				}
+				.menuToggle {
+					display:block;
+					text-align:center;
+				}
+			}
+			&.clickable {
+				color:#333;
+			}
+		}
+		ul {
+			-webkit-transition: all 300ms ease-out;
+			margin:0;
+			padding:25px 0 0 0;
+			list-style-type:none;
+			li {
+				display:block;
+				height:155px;
+				padding:10px 0;
+				text-align:center;
+				img {
+					max-width:100%;
+				}
+				span {
+					display:block;
+					margin-top:-5px;
+				}
+			}
+		}
+	}
+	&.sidepanelleft {
+		-webkit-transform: translate3d(-$sidepanelcontentleft_width,0,0);
+		left:0;
+		width:$sidepanelcontentleft_width + $sidepanelbutton_width;
+		&.active {
+			-webkit-transform: translate3d(0,0,0);
+		}
+		.logocontainer {
+			width:$sidepanelcontentleft_width;
+		}
+		.menubutton {
+			right:0px;
+			border-width:0 0 0 1px;
+			@include background(linear-gradient(right, color-stops(#EEE, #FAFAFA 18%, #FDFDFD 40%, #FFF 100%)));
+			span {
+				-webkit-transform: translate3d(0,540px,0) rotate(-90deg);
+				left:-18px;
+			}
+		}
+		.sidepanelcontent {
+			width:$sidepanelcontentleft_width;
+		}
+	}
+	&.sidepanelright {
+		-webkit-transform: translate3d($sidepanelcontentright_width,0,0);
+		right:0px;
+		width:$sidepanelcontentright_width + $sidepanelbutton_width;
+		padding-left:$sidepanelbutton_width;
+		&.active {
+			-webkit-transform: translate3d(0,0,0);
+		}
+		.logocontainer {
+			width:$sidepanelcontentright_width;
+		}
+		.sidepanelcontent {
+			width:$sidepanelcontentright_width;
+			p {
+				padding-top:$sidepanelcontent_padding;
+			}
+			.sidepanelmenu {
+				-webkit-transition: -webkit-transform 200ms;
+				-webkit-transform: translate3d(0, $sidepanelmenu_height, 0);
+				position:absolute;
+				bottom:$sidepanelcontentcontrol_height - 1px;
+				left:0;
+				width:100%;
+				margin:0;
+				background:white;
+				&.active {
+					-webkit-transform: translate3d(0,0,0);
+				}
+				a.current {
+					background:#DDD;
+
+				}
+			}
+		}
+		.menubutton {
+			left:0px;
+			border-width:0 1px 0 0;
+			@include background(linear-gradient(left, color-stops(#EEE, #FAFAFA 18%, #FDFDFD 40%, #FFF 100%)));
+			span {
+				-webkit-transform: translate3d(0,540px,0) rotate(90deg);
+				left:-3px;
+			}
+		}
+	}
+}
+
+@each $color in $colors {
+  $key: nth($color, 1);
+  $value: nth($color, 2);
+
+  body.theme-#{$key} {
+  	h3 {
+	    color: #{$value};
+  	}
+  	.sidepanel {
+			.scenecontrol ul li {
+				background:#{$value};
+			}
+			.logocontainer,
+			.scenecontrol {
+				border-color:lighten($value,17%);
+			}
+			.menubutton {
+				border-color:lighten($value,17%);
+				span {
+					color:#{$value};
+				}
+			}
+			.sidepanelcontent {
+				background: hsl(hue($value), 100%, 98%);
+				.sidepanelmenu {
+					a {
+						border-color: hsl(hue($value), 100%, 90%);
+						&:hover {
+							background: hsl(hue($value), 100%, 98%);
+						}
+						&.current {
+							background: hsl(hue($value), 100%, 92%);
+						}
+					}
+				}
+				.sidepanelcontrol {
+					border-color:lighten($value,15%);
+					color: lighten($value, 40%);
+					&.clickable {
+						color:#{$value};
+					}
+				}
+			}
+  	}
+  }
+}
+
