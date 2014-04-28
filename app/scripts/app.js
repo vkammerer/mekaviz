@@ -31,6 +31,11 @@ angular.module('motortouchApp', [
 				controller: 'PostShowCtrl',
 				reloadOnSearch: false
 			})
+			.when('/contact', {
+				templateUrl: 'views/contact/showsimple.html',
+				controller: 'PostShowCtrl',
+				reloadOnSearch: false
+			})
 			.when('/old/models', {
 				templateUrl: 'views/model/all.html',
 				controller: 'PostListCtrl',
@@ -66,12 +71,14 @@ angular.module('motortouchApp', [
 			});
 	}])
 .run([
+	'$http',
 	'$rootScope',
 	'initialisation',
 	'constants',
 	'Post',
 	'$location',
 	function(
+		$http,
 		$rootScope,
 		initialisation,
 		constants,

@@ -80,9 +80,14 @@ angular.module('motortouchApp')
 						};
 						// featured image
 						if (rawpost.meta['featured_image']) {
-							post.featured_image = rawpost.media.filter(function(e){
+							var filterReturn = rawpost.media.filter(function(e){
 								return (e.id === rawpost.meta['featured_image'])
-							})[0].sizes[0].url
+							});
+/*
+							if (typeof (filterReturn[0].sizes[0].url) !== 'undefined') {
+								post.featured_image = filterReturn[0].sizes[0].url
+							}
+*/
 						}
 						// categories
 						post.categories = [];
@@ -99,6 +104,7 @@ angular.module('motortouchApp')
 				}
 
 				$rootScope.company = $filter('hasWordpressTag')(posts, 'company')[0];
+				$rootScope.contact = $filter('hasWordpressTag')(posts, 'contact')[0];
 				$rootScope.models = $filter('hasWordpressCategory')(posts, 'model');
 				$rootScope.pieces = $filter('hasWordpressCategory')(posts, 'piece');
 

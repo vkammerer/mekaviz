@@ -15,12 +15,14 @@ vvvv {
 }
 
 .simple {
+	font-family: Tahoma;
 	padding: 0 20px;
-	font-size: 19px;
-	color:#FFF;
+	font-size: 16px;
+	color:#CCC;
 	h1,
 	h2,
 	h3 {
+		color:#AAA;
 		margin-top:0;
 	}
 	h3 {
@@ -28,6 +30,11 @@ vvvv {
 	}
 	font-weight:500;
 	text-align:justify;
+	img,
+	video {
+	  width: 100%    !important;
+	  height: auto   !important;
+	}
 
 }
 
@@ -40,4 +47,79 @@ vvvv {
 		padding:5px;
 	}
 }
+
+.vkcompany {
+	padding: 50px 20px 0;
+	ul {
+		margin:0px 30px 0;
+		padding:40px;
+		list-style-type:none;
+		background:#222;
+		li {
+			padding:20px 0;
+		}
+		img {
+			width: auto !important;
+			margin-right:10px;
+		}
+	}
+	.nous {
+		padding-top:40px;
+		img {
+			border:2px solid white;
+		}
+	}
+	.logocontainer {
+		margin: 0px auto;
+		width: 300px;
+		height: 300px;
+		border-radius: 150px;
+		background: #222;
+		text-align: center;
+		margin-top: -15px;
+		img {
+			margin-top: 120px;
+			width: 80% !important;
+		}
+	}
+	.stereolux {
+		margin:93px auto 0;
+		width:225px;
+		text-align:center;
+		img {
+			margin-top:20px;
+		}
+	}
+
+}
+
+
+.vkcontact {
+	.textcontent {
+		padding:40px 60px;
+		margin-bottom:80px;
+	}
+	padding:40px 20px;
+	.features {
+		text-align:center;
+		img {
+			width:100px !important;
+		}
+	}
+	.techs {
+		margin:0 auto;
+		width:130px;
+		text-align:center;
+		img {
+			margin-top:40px;
+		}
+	}
+}
+
+
+
+
+
+
+
 
